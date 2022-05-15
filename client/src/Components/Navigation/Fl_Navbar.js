@@ -50,9 +50,9 @@ export function FlNavbar() {
                         <div className='fl_dd_item'>
                             <NavDropdown.ItemText>DEPARTMENTS</NavDropdown.ItemText>
                             <hr />
-                            <NavDropdown.Item>BCSO</NavDropdown.Item>
-                            <NavDropdown.Item>FLPD</NavDropdown.Item>
-                            <NavDropdown.Item>FHP</NavDropdown.Item>
+                            <NavDropdown.Item href='/fl/bcso'>BCSO</NavDropdown.Item>
+                            <NavDropdown.Item href='/fl/flpd'>FLPD</NavDropdown.Item>
+                            <NavDropdown.Item href='/fl/fhp'>FHP</NavDropdown.Item>
                         </div>
                         <div className='fl_dd_item'>
                             <NavDropdown.ItemText>INTERNAL</NavDropdown.ItemText>

@@ -50,9 +50,9 @@ export function CaNavbar() {
                         <div className='ca_dd_item'>
                             <NavDropdown.ItemText>DEPARTMENTS</NavDropdown.ItemText>
                             <hr />
-                            <NavDropdown.Item>LAPD</NavDropdown.Item>
-                            <NavDropdown.Item>LASD</NavDropdown.Item>
-                            <NavDropdown.Item>CHP</NavDropdown.Item>
+                            <NavDropdown.Item href='/ca/lapd'>LAPD</NavDropdown.Item>
+                            <NavDropdown.Item href='/ca/lasd'>LASD</NavDropdown.Item>
+                            <NavDropdown.Item href='/ca/chp'>CHP</NavDropdown.Item>
                         </div>
                         <div className='ca_dd_item'>
                             <NavDropdown.ItemText>INTERNAL</NavDropdown.ItemText>

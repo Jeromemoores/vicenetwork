@@ -11,13 +11,13 @@ export function MainNavbar() {
                     <Nav className='me-auto offset-right dark-theme-nav'>
                         <Nav.Link href='/'>HOME</Nav.Link>
                         <NavDropdown title='SERVER'>
-                            <NavDropdown.Item href='/cahome'>California Life RP</NavDropdown.Item>
+                            <NavDropdown.Item href='/ca'>California Life RP</NavDropdown.Item>
                             <hr className='main_navbar_break'/>
-                            <NavDropdown.Item href='/nyhome'>New York Life RP</NavDropdown.Item>
+                            <NavDropdown.Item href='/ny'>New York Life RP</NavDropdown.Item>
                             <hr className='main_navbar_break'/>
-                            <NavDropdown.Item href='/flhome'>Florida Life RP</NavDropdown.Item>
+                            <NavDropdown.Item href='/fl'>Florida Life RP</NavDropdown.Item>
                         </NavDropdown>
-                        <Nav.Link>FORUM</Nav.Link>
+                        <Nav.Link href='/forum'>FORUM</Nav.Link>
                         <Nav.Link>DISCORD</Nav.Link>
                     </Nav>
                     <Nav className='offset-left dark-theme-nav'>

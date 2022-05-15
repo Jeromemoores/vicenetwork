@@ -49,9 +49,9 @@ export function NyNavbar() {
                         <div className='ny_dd_item'>
                             <NavDropdown.ItemText>DEPARTMENTS</NavDropdown.ItemText>
                             <hr />
-                            <NavDropdown.Item>NYPD</NavDropdown.Item>
-                            <NavDropdown.Item>NYSP</NavDropdown.Item>
-                            <NavDropdown.Item>FDNY</NavDropdown.Item>
+                            <NavDropdown.Item href='/ny/nypd'>NYPD</NavDropdown.Item>
+                            <NavDropdown.Item href='/ny/nysp'>NYSP</NavDropdown.Item>
+                            <NavDropdown.Item href='/ny/fdny'>FDNY</NavDropdown.Item>
                         </div>
                         <div className='ny_dd_item'>
                             <NavDropdown.ItemText>INTERNAL</NavDropdown.ItemText>
