@@ -1,0 +1,16 @@
+.dark-theme-nav .dropdown-item, .dark-theme-nav .dropdown-menu {
+    background-color: #121212;
+}
+.dark-theme-nav .dropdown-menu {
+    border-radius: 0;
+    border: 1px solid #686868;
+}
+.dark-theme-nav .dropdown-item:hover {
+    background-color: #686868;
+    color: #121212!important;
+}
+.dark-theme-nav hr {
+    color: red;
+    height: 2px!important;
+    opacity: 100;
+}
