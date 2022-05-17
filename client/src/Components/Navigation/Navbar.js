@@ -27,7 +27,10 @@ export function MainNavbar() {
                             <NavDropdown.Item>View Applications</NavDropdown.Item>
                             <NavDropdown.Item>View Messages</NavDropdown.Item>
                             <NavDropdown.Divider />
-                            <NavDropdown.Item>Sign Out</NavDropdown.Item>
+                            <NavDropdown.Item href='/signin'>Sign In</NavDropdown.Item>
+                            <NavDropdown.Item href='/signup'>Sign Up</NavDropdown.Item>
+                            <NavDropdown.Divider />
+                            <NavDropdown.Item href='/signout'>Sign Out</NavDropdown.Item>
                         </NavDropdown>
                     </Nav>
                 </Navbar.Collapse>
