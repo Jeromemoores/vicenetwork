@@ -6,6 +6,10 @@ const jwt = require('jsonwebtoken')
 const { Accounts } = require('../Models')
 const { SECRET } = require('../Config')
 
+router.get('/', async(req, res) => {
+
+})
+
 router.get('/accounts', async (req, res) => {
     const listOfAccounts = await Accounts.findAll()
     res.json(listOfAccounts)
@@ -36,14 +40,9 @@ router.post('/signup', async (req, res) => {
     req.session.loggedin = true
     req.session.user = account
     const authId = account.auth
-    const token = jwt.sign(
-        {
-            email: account.email,
-            id: account.id,
-            expiresIn: '1d'
-        },
-        SECRET
-    )
+    const id = account.id
+    const token = jwt.sign({id}, SECRET, {expiresIn: '1d'})
+    Accounts.update({token: token}, {where: {email: email}})
     req.header('authorization', token)
     res.header('authorization', token).json({
         error: null,
@@ -66,15 +65,10 @@ router.post('/signin', async (req, res) => {
                 data: {}
             })
         } else {
-            const authId = account.authId
-            const token = jwt.sign(
-                {
-                    email: account.email,
-                    id: account.id,
-                    expiresIn: '1d'
-                },
-                SECRET
-            )
+            const authId = account.auth
+            const id = account.id
+            const token = jwt.sign({id}, SECRET, {expiresIn: '1d'})
+            Accounts.update({token: token}, {where: {email: email}})
             req.header('authorization', token)
             res.header('authorization', token).json({
                 error: null,

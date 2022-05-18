@@ -24,7 +24,7 @@ export function MainNavbar() {
                                 <Nav.Link href='https://www.patreon.com/ViceNetwork'>PATREON</Nav.Link>
                             </Nav>
                             <Nav className='offset-left dark-theme-nav'>
-                                <NavDropdown title={`ACCOUNT2`} align='end'>
+                                <NavDropdown title={`ACCOUNT`} align='end'>
                                     <NavDropdown.Item>View Account</NavDropdown.Item>
                                     <NavDropdown.Item>View Applications</NavDropdown.Item>
                                     <NavDropdown.Item>View Messages</NavDropdown.Item>

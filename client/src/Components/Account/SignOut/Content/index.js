@@ -9,6 +9,11 @@ export function PageContent() {
         } else {
             window.localStorage.clear()
             window.localStorage.removeItem('token')
+            if(window.localStorage.getItem('token') === null) {
+                navigate('/home')
+            } else {
+                window.localStorage.removeItem('token')
+            }
         }
     })
     return(
