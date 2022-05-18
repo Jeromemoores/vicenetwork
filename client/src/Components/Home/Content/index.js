@@ -1,7 +1,7 @@
 export function PageContent() {
     return(
         <>
-            <h1>Hello World Test</h1>
+            <h1>Hello</h1>
         </>
     )
 }
