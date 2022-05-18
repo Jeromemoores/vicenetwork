@@ -42,7 +42,6 @@ router.post('/signup', async (req, res) => {
     const authId = account.auth
     const id = account.id
     const token = jwt.sign({id}, SECRET, {expiresIn: '1d'})
-    Accounts.update({token: token}, {where: {email: email}})
     req.header('authorization', token)
     res.header('authorization', token).json({
         error: null,
@@ -68,7 +67,6 @@ router.post('/signin', async (req, res) => {
             const authId = account.auth
             const id = account.id
             const token = jwt.sign({id}, SECRET, {expiresIn: '1d'})
-            Accounts.update({token: token}, {where: {email: email}})
             req.header('authorization', token)
             res.header('authorization', token).json({
                 error: null,
@@ -88,10 +86,6 @@ router.post('/signin', async (req, res) => {
         })
     }
 })
-
-// router.get('/signout', (req, res) => {
-
-// })
 
 
 module.exports = router

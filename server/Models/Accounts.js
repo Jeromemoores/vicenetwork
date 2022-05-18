@@ -9,9 +9,6 @@ module.exports = (sequelize, DataTypes) => {
             type: DataTypes.UUID,
             defaultValue: DataTypes.UUIDV1
         },
-        token: {
-            type: DataTypes.STRING(900)
-        },
         password: {
             type: DataTypes.STRING(70),
             allowNull: false
