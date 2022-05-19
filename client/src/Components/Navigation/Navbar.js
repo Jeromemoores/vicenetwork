@@ -1,8 +1,23 @@
-import {Navbar, Nav, NavDropdown} from 'react-bootstrap'
-
+import { Navbar, Nav, NavDropdown } from 'react-bootstrap'
+import { useState, useEffect } from 'react'
+import Api from '../axios'
+import { AccountURL } from '../../Config'
 import '../../Style/Navbar.css'
 
 export function MainNavbar() {
+    const [username, setUsername] = useState('')
+
+    useEffect(() => {
+        Api.get(`${AccountURL}/${window.localStorage.getItem('authId')}`)
+        .then(res => {
+            const data = JSON.parse(JSON.parse(JSON.stringify(res.data.data)))
+            setUsername(data.username)
+        })
+        .catch(err => {
+            console.log(err)
+        })
+    }, [])
+
     return(
         <>
             {localStorage.getItem('token') ? // signed in
@@ -24,7 +39,13 @@ export function MainNavbar() {
                                 <Nav.Link href='https://www.patreon.com/ViceNetwork'>PATREON</Nav.Link>
                             </Nav>
                             <Nav className='offset-left dark-theme-nav'>
-                                <NavDropdown title={`ACCOUNT`} align='end'>
+                                <NavDropdown
+
+                                    title={
+                                        username ? `${username}` : 'Account'
+                                    }
+
+                                    align='end'>
                                     <NavDropdown.Item>View Account</NavDropdown.Item>
                                     <NavDropdown.Item>View Applications</NavDropdown.Item>
                                     <NavDropdown.Item>View Messages</NavDropdown.Item>

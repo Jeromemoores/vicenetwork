@@ -7,8 +7,14 @@ const { Accounts } = require('../Models')
 const { SECRET } = require('../Config')
 
 
-router.get('/', async(req, res) => {
-
+router.get('/:authId', async(req, res) => {
+    const result = await Accounts.findOne({where: {auth: req.params.authId}})
+    const account = {
+        email: result.email,
+        password: result.password,
+        data : result.account_data
+    }
+    res.json(account)
 })
 
 router.get('/accounts', async (req, res) => {
@@ -53,8 +59,8 @@ router.post('/signup', async (req, res) => {
 
     Accounts.update({token: token}, {where: {email: email}})
 
-    req.header('authorization', token)
-    res.header('authorization', token).json({
+    req.header('Authorization', token)
+    res.header('Authorization', token).json({
         error: null,
         data: {
             token: token,
@@ -83,8 +89,8 @@ router.post('/signin', async (req, res) => {
 
             Accounts.update({token: token}, {where: {email: email}})
 
-            req.header('authorization', token)
-            res.header('authorization', token).json({
+            req.header('Authorization', token)
+            res.header('Authorization', token).json({
                 error: null,
                 data: {
                     token: token,

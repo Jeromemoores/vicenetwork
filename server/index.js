@@ -2,7 +2,6 @@ const express = require('express')
 const session = require('express-session')
 const app = express()
 const cors = require('cors')
-const bodyParser = require('body-parser')
 const db = require('./Models')
 const { SECRET, PORT } = require('./Config')
 
@@ -15,7 +14,7 @@ app.use(session({
     saveUninitialized: false,
 }))
 
-app.use(bodyParser.urlencoded({extended: true}))
+app.use(express.urlencoded({extended: true}))
 
 app.all('/*', function(req, res, next) {
     res.header("Access-Control-Allow-Origin", "*")
