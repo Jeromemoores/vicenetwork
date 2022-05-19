@@ -48,8 +48,8 @@ router.post('/signup', async (req, res) => {
     req.session.loggedin = true
     req.session.user = account
 
-    const id = account.id
-    const token = jwt.sign({id}, SECRET, {expiresIn: '1d'})
+    const auth = account.auth
+    const token = jwt.sign({auth}, SECRET, {expiresIn: '1d'})
 
     Accounts.update({token: token}, {where: {email: email}})
 
@@ -75,8 +75,8 @@ router.post('/signin', async (req, res) => {
                 data: {}
             })
         } else {
-            const id = account.id
-            const token = jwt.sign({id}, SECRET, {expiresIn: '1d'})
+            const auth = account.auth
+            const token = jwt.sign({auth}, SECRET, {expiresIn: '1d'})
 
             req.session.loggedin = true
             req.session.user = account
