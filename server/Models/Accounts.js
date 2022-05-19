@@ -5,6 +5,14 @@ module.exports = (sequelize, DataTypes) => {
             allowNull: false,
             unique: true
         },
+        account_data: {
+            type: DataTypes.TEXT('long'),
+            allowNull: true,
+            defaultValue: '[]'
+        },
+        token: {
+            type: DataTypes.STRING(400)
+        },
         auth: {
             type: DataTypes.UUID,
             defaultValue: DataTypes.UUIDV1

@@ -12,8 +12,9 @@ app.use(cors())
 app.use(session({
     secret: SECRET,
     resave: true,
-    saveUninitialized: true
+    saveUninitialized: false,
 }))
+
 app.use(bodyParser.urlencoded({extended: true}))
 
 app.all('/*', function(req, res, next) {

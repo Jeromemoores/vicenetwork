@@ -6,6 +6,7 @@ const jwt = require('jsonwebtoken')
 const { Accounts } = require('../Models')
 const { SECRET } = require('../Config')
 
+
 router.get('/', async(req, res) => {
 
 })
@@ -15,9 +16,17 @@ router.get('/accounts', async (req, res) => {
     res.json(listOfAccounts)
 })
 
+
+router.get('/accounts/:id' , async(req, res) => {
+    const result = await Accounts.findOne({where: {id: req.params.id}})
+    const account = {
+        email: result.email
+    }
+    res.json(account)
+})
+
 router.post('/signup', async (req, res) => {
-    const email = await req.body.email
-    const password = await req.body.password
+    const {email, password} = req.body
     const salt = await bcrypt.genSalt(10)
     const hashedPassword = await bcrypt.hash(password, salt)
     const newAccount = {
@@ -25,7 +34,6 @@ router.post('/signup', async (req, res) => {
         password: hashedPassword
     }
     const existingEmail = await Accounts.findOne({where: {email: email}})
-
     if(existingEmail) {
         res.json({
             error: 'Email already in use, did you forget your password?',
@@ -35,26 +43,29 @@ router.post('/signup', async (req, res) => {
     } else {
         await Accounts.create(newAccount)
     }
-
     const account = await Accounts.findOne({where: {email: email}})
+
     req.session.loggedin = true
     req.session.user = account
-    const authId = account.auth
+
     const id = account.id
     const token = jwt.sign({id}, SECRET, {expiresIn: '1d'})
+
+    Accounts.update({token: token}, {where: {email: email}})
+
     req.header('authorization', token)
     res.header('authorization', token).json({
         error: null,
         data: {
             token: token,
             auth: true,
-            authId: authId
+            authId: account.auth
         }
     })
 })
 
 router.post('/signin', async (req, res) => {
-    const {email, password} = req.body
+    const {email, password} = await req.body
     const account = await Accounts.findOne({where: {email: email}})
 
     if(account !== null) {
@@ -64,20 +75,23 @@ router.post('/signin', async (req, res) => {
                 data: {}
             })
         } else {
-            const authId = account.auth
             const id = account.id
             const token = jwt.sign({id}, SECRET, {expiresIn: '1d'})
+
+            req.session.loggedin = true
+            req.session.user = account
+
+            Accounts.update({token: token}, {where: {email: email}})
+
             req.header('authorization', token)
             res.header('authorization', token).json({
                 error: null,
                 data: {
                     token: token,
                     auth: true,
-                    authId: authId
+                    authId: account.auth
                 }
             })
-            req.session.loggedin = true,
-            req.session.user = account
         }
     } else {
         res.json({
