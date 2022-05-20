@@ -1,3 +1,4 @@
+const CaPosts = require('./CaPosts')
 module.exports = (sequelize, DataTypes) => {
     const Accounts = sequelize.define('Accounts', {
         email: {
@@ -27,5 +28,12 @@ module.exports = (sequelize, DataTypes) => {
             allowNull: false
         }
     })
+    Accounts.associate = models => {
+        Accounts.hasMany(models.CaPosts, {
+            foreignKey: "account_Id",
+            onUpdate: "cascade",
+            onDelete: "cascade",
+        });
+    };
     return Accounts
 }
