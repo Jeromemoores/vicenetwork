@@ -8,15 +8,19 @@ export function MainNavbar() {
     const [username, setUsername] = useState('')
 
     useEffect(() => {
-        Api.get(`${AccountURL}/${window.localStorage.getItem('authId')}`)
-        .then(res => {
-            const data = JSON.parse(JSON.parse(JSON.stringify(res.data.data)))
-            setUsername(data.username)
-        })
-        .catch(err => {
-            console.log(err)
-        })
-    }, [])
+        if(!window.localStorage.getItem('authId')) {
+            console.log('Sign IN')
+        } else {
+            Api.get(`${AccountURL}/${window.localStorage.getItem('authId')}`)
+            .then(res => {
+                const data = JSON.parse(JSON.parse(JSON.stringify(res.data.data)))
+                setUsername(data.username)
+            })
+            .catch(err => {
+                console.log(err)
+            })
+        }
+    })
 
     return(
         <>
@@ -46,7 +50,7 @@ export function MainNavbar() {
                                     }
 
                                     align='end'>
-                                    <NavDropdown.Item>View Account</NavDropdown.Item>
+                                    <NavDropdown.Item href='/myaccount'>View Account</NavDropdown.Item>
                                     <NavDropdown.Item>View Applications</NavDropdown.Item>
                                     <NavDropdown.Item>View Messages</NavDropdown.Item>
                                     <NavDropdown.Divider />

@@ -8,13 +8,18 @@ const { SECRET } = require('../Config')
 
 
 router.get('/:authId', async(req, res) => {
-    const result = await Accounts.findOne({where: {auth: req.params.authId}})
-    const account = {
-        email: result.email,
-        password: result.password,
-        data : result.account_data
+    if(!req.params.authId) {
+        res.json('Not Signed In')
+    } else {
+        const result = await Accounts.findOne({where: {auth: req.params.authId}})
+        const account = {
+            email: result.email,
+            password: result.password,
+            data : result.account_data,
+            role: result.roles
+        }
+        res.json(account)
     }
-    res.json(account)
 })
 
 router.get('/accounts', async (req, res) => {
@@ -32,7 +37,7 @@ router.get('/accounts/:id' , async(req, res) => {
 })
 
 router.post('/signup', async (req, res) => {
-    const {email, password} = req.body
+    const {email, password} = await req.body
     const salt = await bcrypt.genSalt(10)
     const hashedPassword = await bcrypt.hash(password, salt)
     const newAccount = {

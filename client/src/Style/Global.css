@@ -7,3 +7,10 @@
 .offset-left {
     margin-right: 2%
 }
+body {
+    background-color: #121212;
+    overflow-y: scroll;
+}
+body::-webkit-scrollbar {
+    width: 0;
+}

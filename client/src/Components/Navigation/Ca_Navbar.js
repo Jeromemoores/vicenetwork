@@ -1,22 +1,38 @@
+// import {useState, useEffect} from 'react'
 import {Navbar, Nav, NavDropdown} from 'react-bootstrap'
 
+// import Api from '../axios'
+// import { AccountURL } from '../../Config'
+
 export function CaNavbar() {
+    // const [role, setRole] = useState('')
+
+    // useEffect(() => {
+    //     Api.get(`${AccountURL}/${localStorage.getItem('authId')}`)
+    //     .then(res => {
+    //         setRole(res.data.role)
+    //     })
+    //     .catch(err => {
+    //         console.log(err)
+    //     })
+    // }, [])
+
     return(
         <Navbar className='ca_navbar'>
             <Nav className='m-auto'>
                 <NavDropdown title='JOIN US'>
                     <div className='ca_dd_wrapper'>
                         <div className='ca_dd_item'>
+                            <NavDropdown.ItemText>JOIN THE COMMUNITY</NavDropdown.ItemText>
+                            <hr />
+                            <NavDropdown.Item>Community Application</NavDropdown.Item>
+                        </div>
+                        <div className='ca_dd_item'>
                             <NavDropdown.ItemText>JOIN A DEPARTMENT</NavDropdown.ItemText>
                             <hr />
                             <NavDropdown.Item>Join LAPD</NavDropdown.Item>
                             <NavDropdown.Item>Join LASD</NavDropdown.Item>
                             <NavDropdown.Item>Join CHP</NavDropdown.Item>
-                        </div>
-                        <div className='ca_dd_item'>
-                            <NavDropdown.ItemText>JOIN THE COMMUNITY</NavDropdown.ItemText>
-                            <hr />
-                            <NavDropdown.Item>Community Application</NavDropdown.Item>
                         </div>
                         <div className='ca_dd_item'>
                             <NavDropdown.ItemText>JOIN A SUBDIVISION</NavDropdown.ItemText>
@@ -29,6 +45,13 @@ export function CaNavbar() {
                     </div>
                 </NavDropdown>
                 <NavDropdown title='RESOURCES' className='rss_dd'>
+                    <div className='ca_dd_wrapper'>
+                        <div className='ca_dd_item'>
+                            <NavDropdown.ItemText>COMMUNITY RESOURCES</NavDropdown.ItemText>
+                            <hr />
+                            <NavDropdown.Item>Terms of Service</NavDropdown.Item>
+                        </div>
+                    </div>
                     <div className='ca_dd_wrapper'>
                         <div className='ca_dd_item'>
                             <NavDropdown.ItemText>COMMUNITY RESOURCES</NavDropdown.ItemText>

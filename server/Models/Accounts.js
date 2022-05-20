@@ -8,7 +8,7 @@ module.exports = (sequelize, DataTypes) => {
         account_data: {
             type: DataTypes.TEXT('long'),
             allowNull: true,
-            defaultValue: '[]'
+            defaultValue: '{}'
         },
         token: {
             type: DataTypes.STRING(400)
@@ -16,6 +16,11 @@ module.exports = (sequelize, DataTypes) => {
         auth: {
             type: DataTypes.UUID,
             defaultValue: DataTypes.UUIDV1
+        },
+        roles: {
+            type: DataTypes.TEXT('long'),
+            allowNull: false,
+            defaultValue: '{"Guest"}'
         },
         password: {
             type: DataTypes.STRING(70),
