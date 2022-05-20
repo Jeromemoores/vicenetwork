@@ -22,6 +22,18 @@ router.get('/:authId', async(req, res) => {
     }
 })
 
+router.put('/:authId', async(req, res) => {
+    if(!req.params.authId) {
+        res.json('Not Signed In')
+    } else {
+        const update = req.body.account_data
+        await Accounts.update(
+            {account_data: update},
+            {returning:true, where: {auth: req.params.authId}})
+        res.json(update)
+    }
+})
+
 router.get('/accounts', async (req, res) => {
     const listOfAccounts = await Accounts.findAll()
     res.json(listOfAccounts)

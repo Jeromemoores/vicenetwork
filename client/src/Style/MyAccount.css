@@ -1,8 +1,12 @@
-h5, h6, p, strong {
+/* h5, h6, p, strong {
     color: white;
-}
+} */
 .acc_card {
     margin: 2% 8% auto;
+    background-repeat: no-repeat;
+    background-size: cover;
+    border-radius: 5px 5px 0 0!important;
+    box-shadow:  5px 15px 5px #000000;
 }
 .acc_card_body {
     display: flex;
@@ -52,7 +56,9 @@ h5, h6, p, strong {
     padding: 0;
     text-align: left;
     margin-bottom: 5%;
-    background-color: #505050!important;
+    border: 1px solid black!important;
+    box-shadow:  5px 15px 5px #000000;
+
 }
 .card_body{
     text-align: left;
@@ -83,7 +89,7 @@ h5, h6, p, strong {
     display: flex;
     justify-content: space-between;
 }
-.test {
+.steam {
     overflow-x: auto;
 }
 
@@ -93,23 +99,34 @@ h5, h6, p, strong {
 }
 .post_card {
     border: 1px solid black!important;
-    background-color: #505050!important;
+    border-radius: 5px;
     margin-bottom: 2%;
+    box-shadow:  5px 15px 5px #000000;
+
 }
 .post_card_header {
     display: flex;
 }
+.test {
+    margin-left: 2%;
+}
+.test p {
+    display: flex;
+    flex-direction: column;
+    padding: 0;
+    margin: 0;
+}
 .post_card_header img {
-    width: 6%;
+    width: 8%;
     border-radius: 100%;
 }
-.post_card_header p {
-    margin-left: 4%;
-    padding: 10px;
-}
+
 .post_card_body {
     margin-top: 2%;
     display: flex;
+}
+.post_card_body img {
+    border-radius: 4px;
 }
 .second_item {
     margin-left: 2%;
@@ -124,4 +141,44 @@ h5, h6, p, strong {
     display: flex;
     justify-content: space-between;
     width: 25%;
+}
+
+.form_group {
+    display: flex;
+    justify-content: space-between;
+    margin-bottom: 2%;
+}
+.form_group input, .form_group label, .form_group2 input, .form_group2 label {
+    padding: 5px;
+}
+.form_group label, .form_group2 label {
+    font-weight: bold;
+    font-variant: small-caps;
+}
+.form_group input, .form_group textarea {
+    width: 60%;
+}
+.form_group2 {
+    display: flex;
+    justify-content: space-between;
+    margin-bottom: 2%;
+}
+.form_group2 div {
+    display: flex;
+    width: 60%;
+}
+.form_group2 input {
+    width: 100%;
+}
+.second_f {
+    margin-left: 2%;
+}
+.upload_button {
+    width: 50px;
+    margin-left: 2%;
+    border-radius: 2px;
+    border: 0;
+}
+.test2 {
+    width: 20px;
 }

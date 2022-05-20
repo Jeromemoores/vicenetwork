@@ -1,5 +1,5 @@
 module.exports = (sequelize, DataTypes) => {
-    const CaPosts = sequelize.define('CaPosts', {
+    const NyPosts = sequelize.define('NyPosts', {
         post_type: {
             type: DataTypes.STRING(70),
             defaultValue: 'Text',
@@ -18,5 +18,5 @@ module.exports = (sequelize, DataTypes) => {
             allowNull: true
         }
     })
-    return CaPosts
+    return NyPosts
 }

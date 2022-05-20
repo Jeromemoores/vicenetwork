@@ -7,7 +7,7 @@ module.exports = (sequelize, DataTypes) => {
             unique: true
         },
         account_data: {
-            type: DataTypes.TEXT('long'),
+            type: DataTypes.JSON(),
             allowNull: true,
             defaultValue: '{}'
         },
@@ -21,7 +21,7 @@ module.exports = (sequelize, DataTypes) => {
         roles: {
             type: DataTypes.TEXT('long'),
             allowNull: false,
-            defaultValue: '{"Guest"}'
+            defaultValue: '{"roles" : "Guest"}'
         },
         password: {
             type: DataTypes.STRING(70),
@@ -33,7 +33,12 @@ module.exports = (sequelize, DataTypes) => {
             foreignKey: "account_Id",
             onUpdate: "cascade",
             onDelete: "cascade",
-        });
-    };
+        })
+        Accounts.hasMany(models.NyPosts, {
+            foreignKey: "account_Id",
+            onUpdate: "cascade",
+            onDelete: "cascade"
+        })
+    }
     return Accounts
 }
