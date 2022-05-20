@@ -1,4 +1,4 @@
-import {useState, useEffect} from 'react'
+import { useState, useEffect } from 'react'
 import { Card, Modal, Form, Button } from 'react-bootstrap'
 import Api from '../../../axios'
 
@@ -80,7 +80,6 @@ export function PageContent() {
             console.log(err)
         })
     }
-
     useEffect(() => {
         const auth = window.localStorage.getItem('authId')
         Api.get(`${AccountURL}/${auth}`)
@@ -127,7 +126,6 @@ export function PageContent() {
             console.log(err)
         })
     }, [])
-
     return(
         <div className='acc_wrapper' style={{'color': `${data.font_color}`}}>
             <Modal show={open} onHide={handleClose} size='lg'>
@@ -186,9 +184,10 @@ export function PageContent() {
                             </div>
                         </Form.Group>
                         <Form.Group controlId='cover_photo' className='form_group2'>
-                            <Form.Label>Cover Picture: </Form.Label>
+                            <Form.Label htmlFor='file'>Cover Picture: </Form.Label>
                             <div>
                                 <Form.Control type='text' name='cover_photo' placeholder={data.cover_photo} onChange={handleInputChange} />
+                                <button className='upload_button'>^</button>
                             </div>
                         </Form.Group>
                         <Form.Group controlId='quote' className='form_group'>
