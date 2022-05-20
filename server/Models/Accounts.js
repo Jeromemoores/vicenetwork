@@ -1,4 +1,3 @@
-const CaPosts = require('./CaPosts')
 module.exports = (sequelize, DataTypes) => {
     const Accounts = sequelize.define('Accounts', {
         email: {
@@ -32,12 +31,17 @@ module.exports = (sequelize, DataTypes) => {
         Accounts.hasMany(models.CaPosts, {
             foreignKey: "account_Id",
             onUpdate: "cascade",
-            onDelete: "cascade",
+            onDelete: "cascade"
         })
         Accounts.hasMany(models.NyPosts, {
             foreignKey: "account_Id",
             onUpdate: "cascade",
             onDelete: "cascade"
+        })
+        Accounts.hasMany(models.Application, {
+            foreignKey: "account_Id",
+            onUpdate: 'cascade',
+            onDelete: 'cascade'
         })
     }
     return Accounts

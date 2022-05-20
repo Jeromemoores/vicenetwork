@@ -2,6 +2,7 @@ import {BrowserRouter as Router, Routes, Route} from 'react-router-dom'
 
 import { Home } from '../Home'
 import { MyAccount } from '../Account/MyAccount'
+import { MyApps } from '../Account/MyApps'
 import { SignIn } from '../Account/SignIn'
 import { SignUp } from '../Account/SignUp'
 import { SignOut } from '../Account/SignOut'
@@ -33,6 +34,7 @@ export function MainNavigation() {
                 <Route path='/' element={<Home />} />
                 <Route path='/home' element={<Home />} />
                 <Route path='/myaccount' element={<MyAccount />} />
+                <Route path='/myapps' element={<MyApps />} />
                 <Route path='/signin' element={<SignIn />} />
                 <Route path='/signup' element={<SignUp />} />
                 <Route path='/signout' element={<SignOut />} />

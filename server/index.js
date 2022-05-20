@@ -35,6 +35,9 @@ app.use('/CaPosts', CaPostsRouter)
 const NyPostsRouter = require('./Routes/NyPosts')
 app.use('/NyPosts', NyPostsRouter)
 
+const ApplicationRouter = require('./Routes/Application')
+app.use('/apps', ApplicationRouter)
+
 db.sequelize.sync().then(() => {
     app.listen(PORT, () => {
         console.log(`Running on ${PORT}`)

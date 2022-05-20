@@ -6,7 +6,6 @@ const jwt = require('jsonwebtoken')
 const { Accounts } = require('../Models')
 const { SECRET } = require('../Config')
 
-
 router.get('/:authId', async(req, res) => {
     if(!req.params.authId) {
         res.json('Not Signed In')

@@ -51,7 +51,7 @@ export function MainNavbar() {
 
                                     align='end'>
                                     <NavDropdown.Item href='/myaccount'>View Account</NavDropdown.Item>
-                                    <NavDropdown.Item>View Applications</NavDropdown.Item>
+                                    <NavDropdown.Item href='/myapps'>View Applications</NavDropdown.Item>
                                     <NavDropdown.Item>View Messages</NavDropdown.Item>
                                     <NavDropdown.Divider />
                                     <NavDropdown.Item href='/signout'>Sign Out</NavDropdown.Item>

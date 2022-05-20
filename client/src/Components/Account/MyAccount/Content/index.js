@@ -187,7 +187,7 @@ export function PageContent() {
                             <Form.Label>Cover Picture: </Form.Label>
                             <div>
                                 <Form.Control type='text' name='cover_photo' placeholder={data.cover_photo} onChange={handleInputChange} />
-                                <button className='upload_button'>^</button>
+                                <Form.Control type='file' />
                             </div>
                         </Form.Group>
                         <Form.Group controlId='quote' className='form_group'>
